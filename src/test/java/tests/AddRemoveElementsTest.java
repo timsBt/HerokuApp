@@ -2,6 +2,7 @@ package tests;
 
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
+import org.testng.asserts.SoftAssert;
 import pages.HerokuAppPage;
 
 import static org.testng.Assert.assertEquals;
@@ -9,6 +10,7 @@ import static org.testng.Assert.assertEquals;
 public class AddRemoveElementsTest extends BaseTest {
 
     HerokuAppPage herokuAppPage;
+    SoftAssert softAssert = new SoftAssert();
 
     @BeforeMethod
     public void openExample() {
@@ -22,9 +24,10 @@ public class AddRemoveElementsTest extends BaseTest {
         herokuAppPage.getAddElementButton().click();
         herokuAppPage.getAddElementButton().click();
         countDeleteButton = herokuAppPage.getDeleteButton().size();
-        assertEquals(countDeleteButton, 2);
+        softAssert.assertEquals(countDeleteButton, 2);
         herokuAppPage.getDeleteButton().get(1).click();
         countDeleteButton = herokuAppPage.getDeleteButton().size();
-        assertEquals(countDeleteButton, 1,"Количество элементов больше одного");
+        softAssert.assertEquals(countDeleteButton, 1,"Количество элементов больше одного");
+        softAssert.assertAll();
     }
 }
