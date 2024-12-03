@@ -9,10 +9,10 @@ import org.testng.annotations.BeforeMethod;
 
 import java.time.Duration;
 
+@Getter
 public class BaseTest {
 
-    @Getter
-    private static WebDriver driver;
+    private WebDriver driver;
 
     @BeforeMethod
     public void setUp() {
@@ -23,7 +23,7 @@ public class BaseTest {
         getDriver().get("https://the-internet.herokuapp.com/");
     }
 
-    @AfterMethod (alwaysRun = true)
+    @AfterMethod(alwaysRun = true)
     public void tearDown() {
         driver.quit();
     }

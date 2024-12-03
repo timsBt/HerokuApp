@@ -6,7 +6,7 @@ import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 import pages.HerokuAppPage;
 
-public class InputsTest  extends BaseTest {
+public class InputsTest extends BaseTest {
 
     HerokuAppPage herokuAppPage;
     SoftAssert softAssert = new SoftAssert();
@@ -21,7 +21,7 @@ public class InputsTest  extends BaseTest {
     public void inputsTest() {
         herokuAppPage.getInput().sendKeys("10");
         herokuAppPage.getInput().sendKeys(Keys.ARROW_UP);
-        softAssert.assertEquals(herokuAppPage.getInput().getAttribute("value"), "");
+        softAssert.assertEquals(herokuAppPage.getInput().getAttribute("value"), "11");
         herokuAppPage.getInput().sendKeys(Keys.ARROW_DOWN);
         herokuAppPage.getInput().sendKeys(Keys.ARROW_DOWN);
         softAssert.assertEquals(herokuAppPage.getInput().getAttribute("value"), "9");

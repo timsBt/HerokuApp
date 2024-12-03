@@ -5,8 +5,6 @@ import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 import pages.HerokuAppPage;
 
-import static org.testng.Assert.assertEquals;
-
 public class AddRemoveElementsTest extends BaseTest {
 
     HerokuAppPage herokuAppPage;
@@ -27,7 +25,7 @@ public class AddRemoveElementsTest extends BaseTest {
         softAssert.assertEquals(countDeleteButton, 2);
         herokuAppPage.getDeleteButton().get(1).click();
         countDeleteButton = herokuAppPage.getDeleteButton().size();
-        softAssert.assertEquals(countDeleteButton, 1,"Количество элементов больше одного");
+        softAssert.assertEquals(countDeleteButton, 1, "Количество элементов больше одного");
         softAssert.assertAll();
     }
 }
